@@ -75,6 +75,20 @@ python-versions = ">=3.5"
 django = ">=2.2"
 
 [[package]]
+name = "gunicorn"
+version = "20.0.4"
+description = "WSGI HTTP Server for UNIX"
+category = "main"
+optional = false
+python-versions = ">=3.4"
+
+[package.extras]
+eventlet = ["eventlet (>=0.9.7)"]
+gevent = ["gevent (>=0.13)"]
+setproctitle = ["setproctitle"]
+tornado = ["tornado (>=0.2)"]
+
+[[package]]
 name = "pillow"
 version = "8.1.0"
 description = "Python Imaging Library (Fork)"
@@ -109,7 +123,7 @@ python-versions = ">=3.5"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "6fa0b030e33964c26425e2207af3eaa0c6a938d133799a58b84f7a34f0f82ed8"
+content-hash = "235039d89f3da08a3a6e72122e9b168d5f998af7f7241c48f48560f4e9b58950"
 
 [metadata.files]
 asgiref = [
@@ -134,6 +148,10 @@ django-unused-media = [
 ]
 djangorestframework = [
     {file = "djangorestframework-3.12.2-py3-none-any.whl", hash = "sha256:0209bafcb7b5010fdfec784034f059d512256424de2a0f084cb82b096d6dd6a7"},
+]
+gunicorn = [
+    {file = "gunicorn-20.0.4-py2.py3-none-any.whl", hash = "sha256:cd4a810dd51bf497552cf3f863b575dabd73d6ad6a91075b65936b151cbf4f9c"},
+    {file = "gunicorn-20.0.4.tar.gz", hash = "sha256:1904bb2b8a43658807108d59c3f3d56c2b6121a701161de0ddf9ad140073c626"},
 ]
 pillow = [
     {file = "Pillow-8.1.0-cp36-cp36m-macosx_10_10_x86_64.whl", hash = "sha256:d355502dce85ade85a2511b40b4c61a128902f246504f7de29bbeec1ae27933a"},
