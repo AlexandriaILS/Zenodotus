@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'v0#x%6l847j#^y7fvyw9i@%mzzx7y*qen)cf-fld$^k+tk^+(2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['zenodotus.alexandrialibrary.dev', '.alexandrialibrary.dev']
 
 # Application definition
 
