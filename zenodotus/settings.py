@@ -25,7 +25,7 @@ SECRET_KEY = 'v0#x%6l847j#^y7fvyw9i@%mzzx7y*qen)cf-fld$^k+tk^+(2'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'zenodotus.alexandrialibrary.dev', '.alexandrialibrary.dev', '192.168.1.185'
+    'zenodotus.alexandrialibrary.dev', '.alexandrialibrary.dev', '192.168.1.185', 'localhost'
 ]
 
 # Application definition
