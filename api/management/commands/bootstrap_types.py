@@ -9,7 +9,7 @@ class Command(BaseCommand):
 
         items = [
             (ItemTypeBase, ItemTypeBase.TYPE_OPTIONS),
-            (BibliographicLevel, BibliographicLevel.LEVEL_OPTIONS)
+            (BibliographicLevel, BibliographicLevel.LEVEL_OPTIONS),
         ]
 
         for model, options in items:

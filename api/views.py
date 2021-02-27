@@ -7,7 +7,7 @@ from api.serializers import (
     ItemTypeSerializer,
     ItemTypeBaseSerializer,
     SubjectSerializer,
-    RecordSerializer
+    RecordSerializer,
 )
 from api.models import BibliographicLevel, ItemType, ItemTypeBase, Subject, Record
 
@@ -25,7 +25,10 @@ class RecordViewSet(ModelViewSet):
         modifiers = Q()
         # localhost:8000/api/record/?title=stuff&authors=guy
         if title := self.request.query_params.get("title"):
-            modifiers.add((Q(title__iexact=title) | Q(subtitle__iexact=title)), modifiers.connector)
+            modifiers.add(
+                (Q(title__iexact=title) | Q(subtitle__iexact=title)),
+                modifiers.connector,
+            )
 
         if authors := self.request.query_params.get("authors"):
             modifiers.add((Q(authors__iexact=authors)), modifiers.connector)

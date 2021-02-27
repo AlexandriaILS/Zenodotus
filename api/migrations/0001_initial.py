@@ -10,58 +10,171 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('taggit', '0003_taggeditem_add_unique_index'),
+        ("taggit", "0003_taggeditem_add_unique_index"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='BibliographicLevel',
+            name="BibliographicLevel",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(choices=[('a', 'Monographic component part'), ('b', 'Serial component part'), ('c', 'Collection'), ('d', 'Subunit'), ('i', 'Integrating resource'), ('m', 'Monograph / Item'), ('s', 'Serial')], max_length=1)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        choices=[
+                            ("a", "Monographic component part"),
+                            ("b", "Serial component part"),
+                            ("c", "Collection"),
+                            ("d", "Subunit"),
+                            ("i", "Integrating resource"),
+                            ("m", "Monograph / Item"),
+                            ("s", "Serial"),
+                        ],
+                        max_length=1,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='ItemType',
+            name="ItemType",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=40)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=40)),
             ],
         ),
         migrations.CreateModel(
-            name='ItemTypeBase',
+            name="ItemTypeBase",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(choices=[('a', 'Language material'), ('c', 'Notated music'), ('d', 'Manuscript notated music'), ('e', 'Cartographic material'), ('f', 'Manuscript cartographic material'), ('g', 'Projected medium'), ('i', 'Nonmusical sound recording'), ('j', 'Musical sound recording'), ('k', 'Two-dimensional nonprojectable graphic'), ('m', 'Computer file'), ('o', 'Kit'), ('p', 'Mixed materials'), ('r', 'Three dimensional artifact or naturally occuring object'), ('t', 'Manuscript language material')], max_length=1)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        choices=[
+                            ("a", "Language material"),
+                            ("c", "Notated music"),
+                            ("d", "Manuscript notated music"),
+                            ("e", "Cartographic material"),
+                            ("f", "Manuscript cartographic material"),
+                            ("g", "Projected medium"),
+                            ("i", "Nonmusical sound recording"),
+                            ("j", "Musical sound recording"),
+                            ("k", "Two-dimensional nonprojectable graphic"),
+                            ("m", "Computer file"),
+                            ("o", "Kit"),
+                            ("p", "Mixed materials"),
+                            (
+                                "r",
+                                "Three dimensional artifact or naturally occuring object",
+                            ),
+                            ("t", "Manuscript language material"),
+                        ],
+                        max_length=1,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Subject',
+            name="Subject",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
             ],
         ),
         migrations.CreateModel(
-            name='Record',
+            name="Record",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=26021)),
-                ('authors', models.CharField(blank=True, max_length=500, null=True)),
-                ('subtitle', models.CharField(blank=True, max_length=26021, null=True)),
-                ('uniform_title', models.CharField(blank=True, max_length=26021, null=True)),
-                ('notes', models.TextField(blank=True, null=True)),
-                ('series', models.TextField(blank=True, null=True)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='')),
-                ('bibliographic_level', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='api.bibliographiclevel')),
-                ('subjects', models.ManyToManyField(blank=True, to='api.Subject', verbose_name='list of subjects')),
-                ('tags', taggit.managers.TaggableManager(blank=True, help_text='A comma-separated list of tags.', through='taggit.TaggedItem', to='taggit.Tag', verbose_name='Tags')),
-                ('type', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='api.itemtype')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=26021)),
+                ("authors", models.CharField(blank=True, max_length=500, null=True)),
+                ("subtitle", models.CharField(blank=True, max_length=26021, null=True)),
+                (
+                    "uniform_title",
+                    models.CharField(blank=True, max_length=26021, null=True),
+                ),
+                ("notes", models.TextField(blank=True, null=True)),
+                ("series", models.TextField(blank=True, null=True)),
+                ("image", models.ImageField(blank=True, null=True, upload_to="")),
+                (
+                    "bibliographic_level",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="api.bibliographiclevel",
+                    ),
+                ),
+                (
+                    "subjects",
+                    models.ManyToManyField(
+                        blank=True, to="api.Subject", verbose_name="list of subjects"
+                    ),
+                ),
+                (
+                    "tags",
+                    taggit.managers.TaggableManager(
+                        blank=True,
+                        help_text="A comma-separated list of tags.",
+                        through="taggit.TaggedItem",
+                        to="taggit.Tag",
+                        verbose_name="Tags",
+                    ),
+                ),
+                (
+                    "type",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="api.itemtype",
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='itemtype',
-            name='base',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='api.itemtypebase'),
+            model_name="itemtype",
+            name="base",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to="api.itemtypebase"
+            ),
         ),
     ]

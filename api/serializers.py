@@ -11,7 +11,7 @@ from api.taggit_serializer import (
 
 class RecordSerializer(TaggitSerializer, ModelSerializer):
     tags = TagListSerializerField(required=False)
-    revision_id = SerializerMethodField('get_revision_id')
+    revision_id = SerializerMethodField("get_revision_id")
 
     def get_revision_id(self, obj):
         try:
@@ -36,7 +36,7 @@ class RecordSerializer(TaggitSerializer, ModelSerializer):
             "image",
             "type",
             "bibliographic_level",
-            "revision_id"
+            "revision_id",
         )
 
 
@@ -72,7 +72,6 @@ class ItemTypeBaseSerializer(ModelSerializer):
 
 
 class SubjectSerializer(ModelSerializer):
-
     class Meta:
         model = Subject
         fields = ("id", "name")

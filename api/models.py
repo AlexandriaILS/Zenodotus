@@ -1,6 +1,7 @@
 from django.db import models
 from taggit.managers import TaggableManager
 
+
 class Subject(models.Model):
     name = models.CharField(max_length=100)
 
