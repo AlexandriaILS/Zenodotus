@@ -132,6 +132,8 @@ class Record(models.Model):
         BibliographicLevel, on_delete=models.CASCADE, blank=True, null=True
     )
 
+    summary = models.TextField(blank=True, null=True)
+
     def __str__(self):
         val = f"{self.title}"
         if self.authors:
